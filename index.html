@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Пройдите опрос чтобы улучшить грядущий проект!" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Quicksand:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <title>BlitzQuestions | Опрос про проект</title>
+</head>
+<body>
+    <header>
+        <p style="position: absolute; left: 50%; top: 55px; translate: -50%; background: #303030; padding: 5px; border-radius: 0 0 10px 10px;">
+            By Wertywin2353, ver 1
+        </p>
+        <b style="font-size: 25px;">Blitz Questions</b>
+    </header>
+
+    <div class="root">
+        <br>
+        <div id="frame1" style="text-align: center; margin-top: 130px;">
+            <span class="loader"></span>
+        </div>
+
+        <div id="frame2" style="text-align: center; display: none;">
+            <h2>Подтвердить личность</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Используя телеграмм бота вы сможете подтвердить свою личность.</p>
+            <br>
+            <h4>Что нужно сделать:</h4>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;">
+                1. Перейдите на <a href="http://t.me/BlitzQuestionsAuth_Bot" style="color: aliceblue;"> бота в телеграмм</a>.<br>
+                2. Запустите его.<br>
+                3. Введите <a style="color: aliceblue;" href="http://t.me/getmyid_bot">ваш Telegram ID</a> ниже.<br>
+                4. В новом поле ввода введите полученный код от бота.
+            </p>
+            <br>
+            <p style="text-align: center;">
+            <input id="IDInput" placeholder="Ваш Telegram ID" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 10px 0 0 10px; padding: 10px; outline: none;"><button onclick="send2FA(this)" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 0 10px 10px 0; padding: 10px;">Далее</button>
+            </p>
+        </div>
+
+        <div id="frame3" style="text-align: center; display: none;">
+            <h2>Подтвердить личность</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Используя телеграмм бота вы сможете подтвердить свою личность.</p>
+            <br>
+            <h4>Введите полученный код:</h4>
+            <br><br>
+            <p style="text-align: center;">
+            <input id="2FACheck" placeholder="2FA код" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 10px 0 0 10px; padding: 10px; outline: none;"><button onclick="apply2FA(this)" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 0 10px 10px 0; padding: 10px;">Далее</button>
+            </p>
+            <br><br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px; transition: 0.3s; opacity: 0;" id="errmes">
+            <b>Введенный код неверен. Страница перезагрузится через три секунды.</b>
+            </p>
+        </div>
+
+        <div id="frame4" style="text-align: center; display: none;">
+            <h2>Вопрос 1: Издание игры</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">На каком издании будет базироватся сервер?</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(1, this, 1)">◇ Minecraft: Bedrock edition</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(1, this)">◇ Minecraft: Java edition</p>
+            <br><br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;">Ваш выбор влияет на другие вопросы. Будте бдительны.</p>
+            
+        </div>
+
+        <div id="frame5" style="text-align: center; display: none;">
+            <h2>Вопрос 2: Версия игры</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Какая версия подойдет лучше всего?</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(2, this)">◇ Последняя версия</p>
+            <br>
+            <h2>ИЛИ</h2>
+            <br>
+            <p style="text-align: center;">
+            <input id="q2ANS" placeholder="Версия" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 10px 0 0 10px; padding: 10px; outline: none;"><button id="q2BTN" onclick="answerQ(2, this, 1)" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 0 10px 10px 0; padding: 10px;">Далее</button>
+            </p>
+
+        </div>
+
+        <div id="frame6" style="text-align: center; display: none;">
+            <h2>Вопрос 3: Модификации</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Что лучше?</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(3, this, 1)">◇ Ванилла</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(3, this)">◇ Плагины</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(3, this)">◇ Моды</p>
+
+        </div>
+
+        <div id="frame7" style="text-align: center; display: none;">
+            <h2>Вопрос 4: Донат</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Монитезация или душвеная поддержка?)</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(4, this, 1)">◇ Монитезация с привилегиями</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(4, this, 1)">◇ Косметическая монитезация </p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(4, this)">◇ Нет монитезации</p>
+
+        </div>
+
+        <div id="frame8" style="text-align: center; display: none;">
+            <h2>Вопрос 5: Название</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Если у тебя есть идея как назвать проект, напиши ее ниже!</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: center;">
+            <input id="q5ANS" placeholder="Ваше Название" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 10px 0 0 10px; padding: 10px; outline: none;"><button id="q2BTN" onclick="answerQ(5, this)" style="color: aliceblue; background: #404040; border: 2px solid #353535; border-radius: 0 10px 10px 0; padding: 10px;">Далее</button>
+            </p>
+
+        </div>
+
+        <div id="frame9" style="text-align: center; display: none;">
+            <h2>Вопрос 6: Хост</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Хост - держатель сервера, от него зависит его стабильность.</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p id="q6BTN" style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(6, this)">◇ Self-Host (Высокая производительность + расширенное расписание)</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(6, this)">◇ Сторонний хост (средняя производительность + ограниченное расписание)</p>
+
+        </div>
+
+        <div id="frame10" style="text-align: center; display: none;">
+            <h2>Вопрос 7: Расписание</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Сколько часов сервер готов работать?</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(7, this)">◇ 2-4 часа</p>
+            <br>
+            <p id="q7BTN" style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(7, this)">◇ 6+ часов</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(7, this)">◇ До отключения последнего игрока</p>
+
+        </div>
+
+        <div id="frame11" style="text-align: center; display: none;">
+            <h2>Вопрос 8: Вид геймплея</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Что лучше?</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p id="q8BTN" style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(8, this)">◇ Анархия</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(8, this)">◇ РП</p>
+
+        </div>
+
+        <div id="frame12" style="text-align: center; display: none;">
+            <h2>Вопрос 9: Ивенты</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Включение в геймплей полноценной системы ивентов.</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(9, this)">◇ С ивентами</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(9, this)">◇ Без ивентов</p>
+
+        </div>
+
+        <div id="frame13" style="text-align: center; display: none;">
+            <h2>Вопрос 10: Роли</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Межуровневое управление возможностями на сервере? Или только один оператор?</p>
+            <br>
+            <!-- ◇ ◈ -->
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(10, this)">◇ Только оператор</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(10, this)">◇ Оператор + модерация</p>
+            <br>
+            <p id="q10BTN" style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px;" onclick="answerQ(10, this)">◇ Оператор + модерация + привелегии</p>
+
+        </div>
+
+        <div id="frame14" style="text-align: center; display: none;">
+            <h2>Опрос завершен!</h2>
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <hr style="opacity: 0;">
+            <p style="opacity: 50%;">Спасибо за ваше мнение, сделаем этот проект лучше!</p>
+            <br>
+            <p style="text-align: left; padding: 15px; background: #404040; border: 2px solid #353535; border-radius: 10px; font-size: 15px;">
+                Ваши ответы будут переданны Администрации грядущего проекта, после чего будет составленны анонимизированные итоги опроса между предположительными пользователями.
+            </p>
+            <br>
+            <p style="text-align: center;">
+            <button disabled style="scale: 0.8" id="closeBTN" onclick="window.close()">Закрыть опрос (5s)</button>
+            </p>
+        </div>
+    </div>
+
+    <p style="position: absolute; bottom: 5px; left: 50%; translate: -50%; width: 90%; text-align: center;">Логин: <b id="login">...</b></p>
+
+
+
+    <div id="choicedump">
+        <br><br><br><br><br><br><br><br>
+        <h1>Вы не можете выбрать этот вариант ответа!</h1>
+        <p style="text-align: center; padding: 20px;">
+        <b style="font-size: 17px;">Согласно вашим выборам в прошлом этот вариант ответа заблокирован.</b>
+        </p>
+        <p style="text-align: left; padding: 15px;">
+        <h4>Ответы, что привели к блокировке:</h4>
+        <br><br>
+        <div id="Failanswers"></div>
+        </p>
+        <button onclick="hideDump()" id="hideButton">Понятно</button>
+    </div>
+    <script src="platform.js"></script>
+    <script src="mainapp.js"></script>
+</body>
+</html>
