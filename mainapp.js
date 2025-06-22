@@ -10,7 +10,6 @@ let req = new XMLHttpRequest();
 let q1,q2,q3,q4,q5,q6,q7,q8,q9,q10;
 
 window.onload = function () {
-    window.location.href = "http://wertywin2353.github.io/403/";
     document.getElementById('login').innerHTML = platform.name + " (Not logged in)";
     pc = getRandomIntInclusive(101010, 909090);
     document.getElementById('frame1').style.opacity = "0";
